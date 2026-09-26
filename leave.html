@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Management - Glavion Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="./js/script.js" defer></script>
+  <script src="./js/auth.js" defer></script>
+</head>
+<body>
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Glavion Solutions</div>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html">Attendance History</a>
+        <a href="leave.html" class="active">Leave Management</a>
+        <a href="profile.html">Profile</a>
+        <a href="admin.html" id="admin-nav-item" class="nav-item">Admin Portal</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="theme-toggle-btn" class="btn btn-secondary">🌙 Dark Mode</button>
+        <nav><a href="index.html" class="logout-link">Logout</a></nav>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <button id="menu-toggle" class="btn mobile-toggle">☰ Menu</button>
+
+      <header class="header-section">
+        <h1>Leave Application Portal</h1>
+        <p>Track balances and apply for leaves.</p>
+      </header>
+
+      <!-- Leave Balances -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h4>Casual Leave Balance</h4>
+          <div id="casual-balance" class="value">--</div>
+        </div>
+        <div class="stat-card">
+          <h4>Sick Leave Balance</h4>
+          <div id="sick-balance" class="value">--</div>
+        </div>
+        <div class="stat-card">
+          <h4>Leave Taken</h4>
+          <div id="taken-count" class="value">--</div>
+        </div>
+      </section>
+
+      <!-- Leave Application Form -->
+      <section class="stat-card" style="margin-bottom: 2rem;">
+        <h3>Apply for Leave</h3>
+        <form id="leave-form" style="margin-top: 1rem;">
+          <div class="form-group">
+            <label for="leave-type">Leave Type</label>
+            <select id="leave-type">
+              <option value="Casual">Casual Leave</option>
+              <option value="Sick">Sick Leave</option>
+            </select>
+          </div>
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+            <div style="flex: 1;">
+              <label for="leave-start">Start Date</label>
+              <input type="date" id="leave-start" required>
+            </div>
+            <div style="flex: 1;">
+              <label for="leave-end">End Date</label>
+              <input type="date" id="leave-end" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="leave-reason">Reason</label>
+            <textarea id="leave-reason" rows="3" placeholder="State your reason..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Submit Request</button>
+        </form>
+      </section>
+
+      <!-- Leave Requests History -->
+      <h3>My Requests</h3>
+      <section class="table-responsive" style="margin-top: 1rem;">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="leave-table-body"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

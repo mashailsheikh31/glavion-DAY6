@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - Enterprise Attendance Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="./js/script.js" defer></script>
+</head>
+<body>
+  <div id="toast-container"></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">Glavion Portal</div>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html">Attendance History</a>
+        <a href="leave.html">Leave Portal</a>
+        <a href="profile.html">Profile Settings</a>
+        <a href="admin.html" class="active">Admin Portal</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="theme-toggle-btn" class="btn btn-secondary">Toggle Theme</button>
+        <nav><a href="#" id="logout-btn" class="logout-link">Logout</a></nav>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <button class="btn btn-secondary mobile-toggle" id="mobile-toggle-btn">☰ Menu</button>
+
+      <section class="header-section">
+        <h2>Supervisor Leave Approval Portal</h2>
+        <p>Review and approve or reject intern leave applications</p>
+      </section>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Intern Name</th>
+              <th>Leave Type</th>
+              <th>Dates</th>
+              <th>Reason</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-leave-table-body">
+            <!-- Dynamically Rendered via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

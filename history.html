@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance History - Enterprise Attendance Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="./js/script.js" defer></script>
+  <script src="./js/auth.js" defer></script>
+</head>
+<body>
+  <div id="toast-container"></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">Glavion Portal</div>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="history.html" class="active">Attendance History</a>
+        <a href="leave.html">Leave Portal</a>
+        <a href="profile.html">Profile Settings</a>
+        <a href="admin.html" id="admin-nav-item" class="nav-item">Admin Portal</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="theme-toggle-btn" class="btn btn-secondary">Toggle Theme</button>
+        <nav><a href="#" id="logout-btn" class="logout-link">Logout</a></nav>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <button class="btn btn-secondary mobile-toggle" id="mobile-toggle-btn">☰ Menu</button>
+
+      <section class="header-section">
+        <h2>Attendance History</h2>
+        <p>Filter records and export full logs to CSV</p>
+      </section>
+
+      <div class="filter-container">
+        <div class="search-group">
+          <input type="text" id="search-input" placeholder="Search by date (YYYY-MM-DD)...">
+          <select id="status-filter">
+            <option value="All">All Statuses</option>
+            <option value="Present">Present</option>
+            <option value="Late">Late</option>
+            <option value="Absent">Absent</option>
+          </select>
+        </div>
+        <button id="export-csv-btn" class="btn">Export CSV</button>
+        <button id="clear-history-btn" class="btn" style="background-color: var(--danger);">Clear History</button>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Check In</th>
+              <th>Check Out</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="history-table-body">
+            <!-- Dynamically Rendered -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
